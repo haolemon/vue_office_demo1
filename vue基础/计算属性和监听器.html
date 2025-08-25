@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+<body>
+    <!--计算属性-->
+    <div id="example">
+        <p>原始信息: "{{ message }}"</p>
+        <p>反转后信息: "{{ reversedMessage }}"</p>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#example',
+        data: {
+            message: 'Hello'
+        },
+        computed: {
+            reversedMessage() {
+                return this.message.split('').reverse().join('')
+            }
+        }
+    });
+</script>
