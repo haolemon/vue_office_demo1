@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+<body>
+<div id="app">
+    <div class="static" v-bind:class="{text_style1: text_Style1, text_style2: text_Style2}"
+         style="height: 200px; width: 200px; text-align: center; line-height: 200px">
+        danger?
+    </div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    const app = new Vue({
+        el: '#app',
+        data: {
+            text_Style1: true,
+            text_Style2: false
+        }
+    })
+</script>
+
+<style>
+    .text_style1 {
+        background-color: blue;
+    }
+
+    .text_style2 {
+        font-size: 34px;
+    }
+</style>
