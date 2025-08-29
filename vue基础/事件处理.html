@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+<body>
+    <div id="example-1">
+        <button v-on:click="counter *= 2">乘2</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+        <button @click="counter *= 2">乘2</button>
+    </div>
+
+    <div id='root'>
+        <button v-on:click="你要执行的东西">1</button>
+        <button @click="你要执行的东西">2</button>
+
+        <button @click="show()">3</button>   // 空时默认传事件对象
+        <button @click="show(10,$event)">4</button>   // 空时默认传事件对象
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    const example1 = new Vue({
+        el: '#example-1',
+        data: {
+            counter: 1
+        }
+    });
+
+    const vm = new Vue({
+        el:'#root',
+        methods:{
+            show(number,event){
+                console.log(number)   // 10
+                console.log(event)	  // 事件对象
+            }
+        }
+    })
+</script>

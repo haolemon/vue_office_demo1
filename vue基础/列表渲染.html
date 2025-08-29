@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+<body>
+    <ul id="example-1">
+        <li v-for="item in items" :key="item.message">
+            {{ item.message }}
+        </li>
+    </ul>
+
+    <ul id="example-2">
+        <li v-for="(item, idx) in items">
+            {{ parentMessage + idx + item.message }}
+        </li>
+    </ul>
+
+    <ul id="v-for-object" class="demo">
+        <div v-for="(value, name, index) in object">
+            {{ index }}. {{ name }}: {{ value }}
+        </div>
+    </ul>
+
+    <div>
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    const example1 = new Vue({
+        el: '#example-1',
+        data: {
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    })
+
+    const example2 = new Vue({
+        el: '#example-2',
+        data: {
+            parentMessage: 'theItems ',
+            items: [
+                {message: ' is 辣条'},
+                {message: ' is 可乐'}
+            ]
+        }
+    })
+
+    new Vue({
+        el: '#v-for-object',
+        data: {
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+</script>
